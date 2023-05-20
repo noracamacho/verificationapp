@@ -1,8 +1,8 @@
 const catchError = require('../utils/catchError');
 const User = require('../models/User');
-const bcrypt = require('bcrypt');
 const sendEmail = require('../utils/sendEmails');
 const EmailCode = require('../models/EmailCode');
+const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const getAll = catchError(async(req, res) => {
@@ -53,7 +53,7 @@ const remove = catchError(async(req, res) => {
     return res.sendStatus(204);
 });
 
-// Since updating the password un user update is not a good practice, it is better to reset password
+// Since updating the password on user update is not a good practice, it is better to reset password
 // So we eliminate the option to update the password with user update
 const update = catchError(async(req, res) => {
     const { id } = req.params;
