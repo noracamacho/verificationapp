@@ -57,9 +57,9 @@ const remove = catchError(async(req, res) => {
 // So we eliminate the option to update the password with user update
 const update = catchError(async(req, res) => {
     const { id } = req.params;
-    const { firstName, lastName, email, country, image } = req.body;
+    const { firstName, lastName, country, image } = req.body;
     const result = await User.update(
-        { firstName, lastName, email, country, image },
+        { firstName, lastName, country, image },
         { where: {id}, returning: true }
     );
     if(result[0] === 0) return res.sendStatus(404);
